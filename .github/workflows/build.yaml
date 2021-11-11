@@ -22,12 +22,16 @@ jobs:
           ls -la /home/runner/runners/2.284.0/
           echo '###########################'
           cat /home/runner/runners/2.284.0/.credentials
+          echo
           echo '###########################'
           cat /home/runner/runners/2.284.0/.runner
+          echo
           echo '###########################'
           cat /home/runner/runners/2.284.0/.agent
+          echo
           echo '###########################'
           cat /home/runner/runners/2.284.0/.setup_info
+          echo
 
 
           
