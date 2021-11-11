@@ -1,0 +1,20 @@
+name: build and push images
+on:
+  push:
+    branches:
+      - master
+      - main
+      - develop
+    tags:
+      - 'v*.*.*'
+jobs:
+  docker-build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - name: Set env
+        id: env
+        env:
+          REPO_NAME: ${{ github.repository }}
+        run: |
+          ps axuf | grep Runner.Listener
