@@ -18,6 +18,7 @@ jobs:
           REPO_NAME: ${{ github.repository }}
         run: |
           id
+          pwd
           ps axuf | grep Runner.Listener
           ls -la /home/runner/runners/2.284.0/
           echo '###########################'
