@@ -1,0 +1,22 @@
+name: reuse
+on:
+  workflow_call:
+    inputs:
+      docker-args:
+        description: 'blabla'
+        required: true
+        type: string
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps: 
+    - name: set-env
+      run: |
+        echo "ENV1=ENV1" >> $GITHUB_ENV
+        echo "ENV2=ENV2" >> $GITHUB_ENV
+
+    - name: check resolve envs
+      run: |
+        echo "docker-args: ${{ inputs.docker-args }}"
+      
