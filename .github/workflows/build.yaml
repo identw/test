@@ -21,16 +21,16 @@ jobs:
           ps axuf | grep Runner.Listener
           ls -la /home/runner/runners/2.284.0/
           echo '###########################'
-          cat /home/runner/runners/2.284.0/.credentials
+          cat /home/runner/runners/2.284.0/.credentials | jq .
           echo
           echo '###########################'
-          cat /home/runner/runners/2.284.0/.runner
+          cat /home/runner/runners/2.284.0/.runner | jq .
           echo
           echo '###########################'
-          cat /home/runner/runners/2.284.0/.agent
+          cat /home/runner/runners/2.284.0/.agent | jq .
           echo
           echo '###########################'
-          cat /home/runner/runners/2.284.0/.setup_info
+          cat /home/runner/runners/2.284.0/.setup_info jq .
           echo
 
 
