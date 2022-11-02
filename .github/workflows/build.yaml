@@ -3,11 +3,11 @@ on:
   push:
     paths:
     - "k8s/**"
-jobs:
-  docker-build-and-publish:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@main
-      - run: |
-            ls -la
-            ls -la
+#jobs:
+#  docker-build-and-publish:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@main
+#      - run: |
+#            ls -la
+#            ls -la
