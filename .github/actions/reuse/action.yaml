@@ -1,0 +1,19 @@
+name: 'reuse'
+description: 'reuse'
+inputs:
+  docker-args:
+    required: true
+    description: 'docker args'
+runs:
+  using: "composite"
+  steps:
+    - name: set-env
+      shell: bash
+      run: |
+        echo "TEST1=REUSE_ENV1" >> $GITHUB_ENV
+        echo "TEST2=REUSE_ENV2" >> $GITHUB_ENV
+
+    - name: check resolve envs
+      shell: bash
+      run: |
+        echo "docker-args: ${{ inputs.docker-args }}"

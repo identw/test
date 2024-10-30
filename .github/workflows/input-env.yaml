@@ -1,0 +1,24 @@
+name: input-env
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+env:
+  TEST1: 'WORKFLOW_ENV1'
+  TEST2: 'WORKFLOW_ENV2'
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@main
+
+    - name: reuse
+      uses: ./.github/actions/reuse
+      with:
+        docker-args: |
+          ENV1=${{ env.TEST1 }}
+          ENV2=${{ env.TEST2 }}
+
