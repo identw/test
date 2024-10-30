@@ -13,8 +13,8 @@ jobs:
     steps: 
     - name: set-env
       run: |
-        echo "ENV1=ENV1" >> $GITHUB_ENV
-        echo "ENV2=ENV2" >> $GITHUB_ENV
+        echo "TEST1=REUSE_ENV1" >> $GITHUB_ENV
+        echo "TEST2=REUSE_ENV2" >> $GITHUB_ENV
 
     - name: check resolve envs
       run: |

@@ -1,0 +1,14 @@
+name: os-env
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    uses: ./.github/workflows/resuse.yaml
+    with:
+      docker-args: |
+        ENV1=${TEST1}
+        ENV2=${TEST2}
