@@ -11,6 +11,9 @@ jobs:
     name: build
     runs-on: ubuntu-latest
     steps: 
+    - name: checkout
+      uses: actions/checkout@main
+      
     - name: set-env
       run: |
         echo "TEST1=REUSE_ENV1" >> $GITHUB_ENV
