@@ -19,4 +19,20 @@ jobs:
     - name: check resolve envs
       run: |
         echo "docker-args: ${{ inputs.docker-args }}"
+
+    # nosemgrep
+    - uses: identw/build-images-action@main
+      id: build-images
+      with:
+        registry: ghcr.io
+        registry-user: ${{ github.repository_owner }}
+        registry-password: ${{ secrets.GITHUB_TOKEN }}
+        tag: latest
+        operation: build-and-push
+        build-opts: |
+          - name: server
+            file: ./Dockerfile
+            args: ${{ inputs.docker-args }}
+
+
       

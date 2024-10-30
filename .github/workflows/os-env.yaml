@@ -9,6 +9,4 @@ jobs:
   build:
     uses: ./.github/workflows/resuse.yaml
     with:
-      docker-args: |
-        ENV1=${TEST1}
-        ENV2=${TEST2}
+      docker-args: '[{"name": "TEST1", "value": "${TEST1}"},{"name": "TEST2", "value": "${TEST2}"}]'
